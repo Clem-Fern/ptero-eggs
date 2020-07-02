@@ -1,0 +1,26 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v1"
+    },
+    "exported_at": "2020-07-02T20:45:52+02:00",
+    "name": "Jenkins-Clem",
+    "author": "clemfern456@gmail.com",
+    "description": "Jenkins WAR pterodactyl egg",
+    "image": "quay.io\/pterodactyl\/core:java",
+    "startup": "java -Dinteractive -Duser.dir=\/home\/container -Djava.io.tmpdir=\/home\/container -jar jenkins.war --httpPort={{SERVER_PORT}}",
+    "config": {
+        "files": "{\r\n    \"?\/.jenkins\/config.xml\": {\r\n        \"parser\": \"xml\",\r\n        \"find\": {}\r\n    }\r\n}",
+        "startup": "{\r\n    \"done\": \"Completed initialization\"\r\n}",
+        "logs": "{\r\n    \"custom\": false,\r\n    \"location\": \"jenkins.log\"\r\n}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/ash\r\n# Jenkins Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\napk update\r\napk add curl\r\n\r\ncd \/mnt\/server\r\n\r\ncurl -L http:\/\/mirrors.jenkins-ci.org\/war\/latest\/jenkins.war -o jenkins.war",
+            "container": "alpine:3.4",
+            "entrypoint": "ash"
+        }
+    },
+    "variables": []
+}
