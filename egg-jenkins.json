@@ -3,11 +3,11 @@
     "meta": {
         "version": "PTDL_v1"
     },
-    "exported_at": "2020-07-02T20:45:52+02:00",
+    "exported_at": "2020-07-04T15:26:11+02:00",
     "name": "Jenkins-Clem",
     "author": "clemfern456@gmail.com",
     "description": "Jenkins WAR pterodactyl egg",
-    "image": "quay.io\/pterodactyl\/core:java",
+    "image": "quay.io\/parkervcp\/pterodactyl-images:debian_openjdk-8-openj9",
     "startup": "java -Dinteractive -Duser.dir=\/home\/container -Djava.io.tmpdir=\/home\/container -jar jenkins.war --httpPort={{SERVER_PORT}}",
     "config": {
         "files": "{\r\n    \"?\/.jenkins\/config.xml\": {\r\n        \"parser\": \"xml\",\r\n        \"find\": {}\r\n    }\r\n}",
